@@ -1,0 +1,448 @@
+
+Windows PowerShell
+Copyright (C) Microsoft Corporation. Todos os direitos reservados.     
+
+Experimente a nova plataforma cruzada PowerShell https://aka.ms/pscore6
+
+ Robô/Jogo da velha.py"
+Iniciando...
+Enviada malha
+terminado malha
+Objeto ignorado
+[0, 0, 0, 0, 0, 0, 0, 0, 0]
+[0, 0, 0, 0, 0, 0, 0, 0, 0]
+O jogo atual é: 
+ | |
+ | | 
+ | |
+O jogo atual é:
+ | |
+ | |
+ | |
+Imagem nova...
+Terminou
+x
+Objeto ignorado
+[0, 0, 0, 0, 2, 0, 0, 0, 0]
+[0, 0, 0, 0, 2, 0, 0, 0, 0]
+O jogo atual é:
+ | |
+ |X|
+ | |
+D Jogue no quadrante 2     
+Enviada malha
+terminado malha
+O jogo atual é: 
+ | |O
+ |X| 
+ | | 
+Imagem nova...
+Terminou
+x
+o
+Objeto ignorado
+[0, 0, 1, 0, 2, 0, 0, 0, 0]
+[0, 0, 1, 0, 2, 0, 0, 0, 0]
+O jogo atual é: 
+ | |O
+ |X|
+ | |
+C Jogue no quadrante 1
+Enviada malha
+terminado malha
+O jogo atual é: 
+ |O|O
+ |X|
+ | |
+Imagem nova...
+Terminou
+Objeto ignorado
+x
+Objeto ignorado
+o
+o
+Objeto ignorado
+Objeto ignorado
+[0, 1, 1, 0, 2, 0, 0, 0, 0]
+[0, 1, 1, 0, 2, 0, 0, 0, 0]
+O jogo atual é:
+ |O|O
+ |X| 
+ | |
+A Jogue no quadrante 0
+Enviada malha
+terminado malha
+Vitoria do robô!!!
+O jogo atual é: 
+O|O|O
+ |X|
+ | |
+O jogo atual é:
+O|O|O
+ |X|
+ | |
+Imagem nova...
+Terminou
+Objeto ignorado
+x
+Objeto ignorado
+Objeto ignorado
+o
+o
+o
+Objeto ignorado
+Objeto ignorado
+[1, 1, 1, 0, 2, 0, 0, 0, 0]
+[1, 1, 1, 0, 2, 0, 0, 0, 0]
+O jogo atual é:
+O|O|O
+ |X|
+ | |
+C Jogue no quadrante 7
+Enviada malha
+terminado malha
+O jogo atual é: 
+O|O|O
+ |X|
+ |O|
+Imagem nova...
+Terminou
+o
+x
+o
+o
+o
+Objeto ignorado
+[1, 1, 1, 0, 2, 0, 0, 1, 0]
+[1, 1, 1, 0, 2, 0, 0, 1, 0]
+O jogo atual é:
+O|O|O
+ |X|
+ |O|
+C Jogue no quadrante 8
+Enviada malha
+terminado malha
+O jogo atual é: 
+O|O|O
+ |X|
+ |O|O
+Imagem nova...
+Terminou
+o
+o
+x
+o
+o
+o
+Objeto ignorado
+[1, 1, 1, 0, 2, 0, 0, 1, 1]
+[1, 1, 1, 0, 2, 0, 0, 1, 1]
+O jogo atual é:
+O|O|O
+ |X|
+ |O|O
+A Jogue no quadrante 6
+Enviada malha
+terminado malha
+Vitoria do robô!!!
+O jogo atual é: 
+O|O|O
+ |X|
+O|O|O
+O jogo atual é:
+O|O|O
+ |X|
+O|O|O
+Imagem nova...
+Terminou
+o
+o
+o
+x
+o
+o
+o
+Objeto ignorado
+Objeto ignorado
+[1, 1, 1, 0, 2, 0, 1, 1, 1]
+[1, 1, 1, 0, 2, 0, 1, 1, 1]
+O jogo atual é:
+O|O|O
+ |X|
+O|O|O
+A Jogue no quadrante 3
+Enviada malha
+terminado malha
+Vitoria do robô!!!
+O jogo atual é: 
+O|O|O
+O|X|
+O|O|O
+O jogo atual é:
+O|O|O
+O|X|
+O|O|O
+Imagem nova...
+Terminou
+Objeto ignorado
+Objeto ignorado
+o
+o
+o
+x
+o
+o
+o
+o
+Objeto ignorado
+Objeto ignorado
+[1, 1, 1, 1, 2, 0, 1, 1, 1]
+[1, 1, 1, 1, 2, 0, 1, 1, 1]
+O jogo atual é:
+O|O|O
+O|X|
+O|O|O
+A Jogue no quadrante 5
+Enviada malha
+terminado malha
+Vitoria do robô!!!
+O jogo atual é: 
+O|O|O
+O|X|O
+O|O|O
+O jogo atual é:
+O|O|O
+O|X|O
+O|O|O
+Imagem nova...
+Terminou
+Objeto ignorado
+o
+o
+o
+x
+o
+o
+o
+o
+o
+Objeto ignorado
+[1, 1, 1, 1, 2, 1, 1, 1, 1]
+[1, 1, 1, 1, 2, 1, 1, 1, 1]
+O jogo atual é:
+O|O|O
+O|X|O
+O|O|O
+Deu velha!
+O jogo atual é:
+O|O|O
+O|X|O
+O|O|O
+O jogo atual é:
+O|O|O
+O|X|O
+O|O|O
+Imagem nova...
+Terminou
+o
+o
+o
+x
+o
+o
+o
+o
+o
+Objeto ignorado
+[1, 1, 1, 1, 2, 1, 1, 1, 1]
+[1, 1, 1, 1, 2, 1, 1, 1, 1]
+O jogo atual é:
+O|O|O
+O|X|O
+O|O|O
+Deu velha!
+O jogo atual é: 
+O|O|O
+O|X|O
+O|O|O
+O jogo atual é:
+O|O|O
+O|X|O
+O|O|O
+Imagem nova...
+Terminou
+o
+o
+o
+x
+o
+o
+o
+o
+o
+o
+Objeto ignorado
+Objeto ignorado
+[1, 1, 1, 1, 2, 1, 1, 1, 0]
+[1, 1, 1, 1, 2, 1, 1, 1, 0]
+O jogo atual é:
+O|O|O
+O|X|O
+O|O|
+A Jogue no quadrante 8
+Enviada malha
+terminado malha
+Vitoria do robô!!!
+O jogo atual é: 
+O|O|O
+O|X|O
+O|O|O
+O jogo atual é:
+O|O|O
+O|X|O
+O|O|O
+Imagem nova...
+Terminou
+o
+o
+o
+x
+o
+o
+o
+o
+o
+Objeto ignorado
+[1, 1, 1, 1, 2, 1, 1, 1, 1]
+[1, 1, 1, 1, 2, 1, 1, 1, 1]
+O jogo atual é:
+O|O|O
+O|X|O
+O|O|O
+Deu velha!
+O jogo atual é:
+O|O|O
+O|X|O
+O|O|O
+O jogo atual é:
+O|O|O
+O|X|O
+O|O|O
+Imagem nova...
+Terminou
+o
+o
+o
+x
+o
+o
+o
+o
+o
+Objeto ignorado
+Objeto ignorado
+[1, 1, 1, 1, 2, 1, 1, 1, 1]
+[1, 1, 1, 1, 2, 1, 1, 1, 1]
+O jogo atual é:
+O|O|O
+O|X|O
+O|O|O
+Deu velha!
+O jogo atual é:
+O|O|O
+O|X|O
+O|O|O
+O jogo atual é:
+O|O|O
+O|X|O
+O|O|O
+Imagem nova...
+Terminou
+o
+o
+o
+x
+o
+o
+Objeto ignorado
+o
+o
+o
+Objeto ignorado
+Objeto ignorado
+[1, 1, 1, 1, 2, 1, 1, 1, 1]
+[1, 1, 1, 1, 2, 1, 1, 1, 1]
+O jogo atual é:
+O|O|O
+O|X|O
+O|O|O
+Deu velha!
+O jogo atual é:
+O|O|O
+O|X|O
+O|O|O
+O jogo atual é:
+O|O|O
+O|X|O
+O|O|O
+Imagem nova...
+Terminou
+o
+o
+o
+x
+o
+o
+o
+o
+o
+Objeto ignorado
+[1, 1, 1, 1, 2, 1, 1, 1, 1]
+[1, 1, 1, 1, 2, 1, 1, 1, 1]
+O jogo atual é:
+O|O|O
+O|X|O
+O|O|O
+Deu velha!
+O jogo atual é:
+O|O|O
+O|X|O
+O|O|O
+O jogo atual é:
+O|O|O
+O|X|O
+O|O|O
+Imagem nova...
+Terminou
+o
+o
+o
+x
+o
+o
+o
+o
+o
+o
+Objeto ignorado
+Objeto ignorado
+[1, 1, 1, 1, 2, 1, 1, 1, 0]
+[1, 1, 1, 1, 2, 1, 1, 1, 0]
+O jogo atual é:
+O|O|O
+O|X|O
+O|O|
+A Jogue no quadrante 8
+Enviada malha
+terminado malha
+Vitoria do robô!!!
+O jogo atual é: 
+O|O|O
+O|X|O
+O|O|O
+O jogo atual é:
+O|O|O
+O|X|O
+O|O|O
+Imagem nova...
+Terminou
