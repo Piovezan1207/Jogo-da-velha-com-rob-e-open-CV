@@ -10,7 +10,7 @@ import time
 ser = serial.Serial('COM7', 9600)
 
 def criar_malha():
-    textoSaida = 'W'
+    textoSaida = 'w'
     ser.write(textoSaida.encode()) 
     time.sleep(0.5)
     print("Enviada malha")
@@ -18,25 +18,25 @@ def criar_malha():
     teste = ser.read()
     print(teste)
     print("terminado malha")
-    time.sleep(0.8)
-    textoSaida = 'V'
-    ser.write(textoSaida.encode()) 
+    #time.sleep(0.8)
+    #textoSaida = 'v'
+    #ser.write(textoSaida.encode()) 
     
 
 def serial_enviar(num):
-    letras = ['a','c','d', 'e','f','g', 'h','i','j']
+    letras = ['a','c','d', 'e','f','g', 'h','i','j','k','l','m']
     #time.sleep(1)
     textoSaida = letras[num]
     ser.write(textoSaida.encode()) 
     time.sleep(0.8)
-    print("Enviada malha")
+    print("Enviada a posicao")
     teste = " "
     teste = ser.read()
     print(teste)
-    print("terminado malha")
-    time.sleep(0.8)
-    textoSaida = 'V'
-    ser.write(textoSaida.encode()) 
+    print("terminado posicao")
+    time.sleep(0.4)
+    #textoSaida = 'V'
+    #ser.write(textoSaida.encode()) 
 
 #Dificuldade = 0 # 0 - Fácil - 90% de chance de erro do robô
                 # 1 -  Médio - 50% de chance de erro do robô
@@ -70,7 +70,7 @@ def Escolher_dificuldade():
             print("Digite um valor válido!")
     return(Dificuldade)
 
-Flag_jogo = 0
+
 
 #              0                     1                     2                     3                    4                     5                     6                     7                   
 #              0 1 2 3 4 5 6 7 8
@@ -150,7 +150,7 @@ def Escolher_estrategia(Vet_quadrantes,info,MATRIZ_JOGO):
                     quadrante_escolhido = Vet_quadrantes[ii]
                 if varx == var1:
                     valores_iguais.append(Vet_quadrantes[ii])
-        #print("Valores iguais" + str(valores_iguais))
+        print("Valores iguais" + str(valores_iguais))
         #print("Escolhendo 1 aleatoriamente: " + str(valores_iguais[randint(0, len(valores_iguais)-1)]))
         if(len(valores_iguais) > 0):
             quadrante_escolhido = valores_iguais[randint(0, len(valores_iguais)-1)]
@@ -185,13 +185,12 @@ def Verificar_jogo(MATRIZ_JOGO):
     return
 
 
-
 def Logica(MATRIZ,DIFIC):
-
+    
     MATRIZ_JOGO = MATRIZ
     print(MATRIZ)
     Dificuldade = DIFIC #Escolher_dificuldade()
-    Flag_jogo = 0
+    #Flag_jogo = 0
 
     Verificar_jogo(MATRIZ_JOGO)
 
@@ -275,6 +274,7 @@ def Logica(MATRIZ,DIFIC):
         if (len(X_N_ESTRATEGIAS_PRIORIDADE[2]) > 0) and flag_vitoria == 0:
             #print("Você ganhou, com a estratégia: " + str(X_N_ESTRATEGIAS_PRIORIDADE[2][0]))
             print("Parabéns, você ganhou!")
+            serial_enviar(11)
             flag_vitoria = 1
             Flag_jogo = 1
             Verificar_jogo(MATRIZ_JOGO)
@@ -287,6 +287,7 @@ def Logica(MATRIZ,DIFIC):
 
             if flag_velha == 1:
                 print("Deu velha!")
+                serial_enviar(9)
                 flag_vitoria = 1
                 Flag_jogo = 1
                 Verificar_jogo(MATRIZ_JOGO)
@@ -310,6 +311,7 @@ def Logica(MATRIZ,DIFIC):
                     flag_vitoria = 1
                     Flag_jogo = 1
                     print("Vitoria do robô!!!")
+                    serial_enviar(10)
                     Verificar_jogo(MATRIZ_JOGO)
 
     if len(X_N_ESTRATEGIAS_PRIORIDADE[0]) > 0 and flag_vitoria == 0: 
@@ -317,26 +319,15 @@ def Logica(MATRIZ,DIFIC):
             for i in range(0, 9):
                 if estrategias[X_N_ESTRATEGIAS_PRIORIDADE[0][ii]][i] == 1 and MATRIZ_JOGO[i] == 0 and flag_vitoria == 0:
                     print("B Jogue no quadrante " + str(i))
+                    print("Quebra de vitoria")
                     MATRIZ_JOGO[i] = 1
                     serial_enviar(i)
                     flag_vitoria = 1
 
-    if len(O_N_ESTRATEGIAS_PRIORIDADE[1]) > 0 and flag_vitoria == 0: 
-        vet_qua_vazio= []
-        for ii in range (0, len(O_N_ESTRATEGIAS_PRIORIDADE[1])): #Caso não tenha ngm engatilhado para ganhar, o robô verifica qual o melhor local para jogar de acordo com oq ele já fez
-            for i in range(0, 9):
-                if estrategias[O_N_ESTRATEGIAS_PRIORIDADE[1][ii]][i] == 1 and MATRIZ_JOGO[i] == 1:
-                
-                    for iii in range (0,9):
-                        
-                        if estrategias[O_N_ESTRATEGIAS_PRIORIDADE[1][ii]][iii] == 1 and iii != i and MATRIZ_JOGO[iii] != 2:
-                            vet_qua_vazio.append(iii)
-        #print("Quadrantes disponíveis 1 " + str(vet_qua_vazio))
-        val_temp = Escolher_estrategia(vet_qua_vazio,2,MATRIZ_JOGO)
-        print("C Jogue no quadrante " + str(val_temp) )
-        MATRIZ_JOGO[val_temp] = 1
-        serial_enviar(val_temp)
+    if MATRIZ[4] == 0 and flag_vitoria == 0:   #Caso o meio esteja vazio, o robô irá jogar lá
+        serial_enviar(4)
         flag_vitoria = 1
+
 
     if len(X_N_ESTRATEGIAS_PRIORIDADE[1]) > 0 and flag_vitoria == 0: 
         vet_qua_vazio= []
@@ -351,6 +342,25 @@ def Logica(MATRIZ,DIFIC):
         #print("Quadrantes disponíveis 2 " + str(vet_qua_vazio))
         val_temp = Escolher_estrategia(vet_qua_vazio,10,MATRIZ_JOGO)
         print("D Jogue no quadrante " + str(val_temp) )
+        print("Merda 2")
+        MATRIZ_JOGO[val_temp] = 1
+        serial_enviar(val_temp)
+        flag_vitoria = 1
+
+    if len(O_N_ESTRATEGIAS_PRIORIDADE[1]) > 0 and flag_vitoria == 0: 
+        vet_qua_vazio= []
+        for ii in range (0, len(O_N_ESTRATEGIAS_PRIORIDADE[1])): #Caso não tenha ngm engatilhado para ganhar, o robô verifica qual o melhor local para jogar de acordo com oq ele já fez
+            for i in range(0, 9):
+                if estrategias[O_N_ESTRATEGIAS_PRIORIDADE[1][ii]][i] == 1 and MATRIZ_JOGO[i] == 1:
+                
+                    for iii in range (0,9):
+                        
+                        if estrategias[O_N_ESTRATEGIAS_PRIORIDADE[1][ii]][iii] == 1 and iii != i and MATRIZ_JOGO[iii] != 2:
+                            vet_qua_vazio.append(iii)
+        #print("Quadrantes disponíveis 1 " + str(vet_qua_vazio))
+        val_temp = Escolher_estrategia(vet_qua_vazio,2,MATRIZ_JOGO)
+        print("C Jogue no quadrante " + str(val_temp) )
+        print("Merda 1")
         MATRIZ_JOGO[val_temp] = 1
         serial_enviar(val_temp)
         flag_vitoria = 1
@@ -358,7 +368,7 @@ def Logica(MATRIZ,DIFIC):
     if (len(O_N_ESTRATEGIAS_PRIORIDADE[2]) > 0) and flag_vitoria == 0:
         print("O robô ganhou, com a estratégia: " + str(O_N_ESTRATEGIAS_PRIORIDADE[2][0]))
         flag_vitoria = 1
-        Flag_jogo = 1
+        #Flag_jogo = 1
     Verificar_jogo(MATRIZ_JOGO)
     
     print("Imagem nova...")

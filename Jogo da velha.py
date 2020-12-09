@@ -34,7 +34,7 @@ video = cv2.VideoCapture(0) #chamar abertura da webcam
 logica.criar_malha()
 
 fff , imgk = video.read() #Fazer a leitura de um frame do vídeo e armazenar na variável frame
-imgk = Arrumar_img(imgk,600)
+imgk = Arrumar_img(imgk,800)
 
 def Achar_objetos(imgX): #Função para encontrar objetos na imagem, no caso os objetos serão a malha do JOGO > # < e os caracteres utilizados no jogo > X < e > O <
 
@@ -45,7 +45,7 @@ def Achar_objetos(imgX): #Função para encontrar objetos na imagem, no caso os 
     imgXX = cv2.cvtColor(img_menor, cv2.COLOR_BGR2GRAY)
 
     #Passo 2: Blur/Suavização da imagem
-    suave = cv2.blur(imgXX, (5, 5)) #A suavização da iamgem pode ser maior, mudando seus parâmetros para 5,5 / 7,7 / 9,9 ... Mas 3,3 já foi o sufuciente nos testes
+    suave = cv2.blur(imgXX, (9, 9)) #A suavização da iamgem pode ser maior, mudando seus parâmetros para 5,5 / 7,7 / 9,9 ... Mas 3,3 já foi o sufuciente nos testes
    # suave = imgXX.copy()
     #Passo 3: Binarização resultando em pixels brancos e pretos
     #A imagem que será binarizada está em tons de cinza, assim tem apenas uma variável de cor, sendo que quando mais próximo de 0, mais preto e quanto mais próximo de 255, mais branco
@@ -109,6 +109,7 @@ while 1: # loop principal,irá ficar verificando se há alguma mudança na malha
 
    # objetos = Achar_objetos(imgk)
     n_objetos = len(objetos)
+    print("O número de objetos para comparação é: " + str(n_objetos))
     n_objetos1 = len(objetos)
 
     #  Essa etapa entende quando a pessoa fez a jogada e libera para o programa interpretar os objetos e atualizar o vetro do jogo
@@ -141,9 +142,15 @@ while 1: # loop principal,irá ficar verificando se há alguma mudança na malha
                 time.sleep(0.05) # Aguarda um tempo
             
         fff , img1 = video.read() #atualiza o frame img1 para uma foto atual
-        img1 = Arrumar_img(img1,600)
+        img1 = Arrumar_img(img1,800)
         objetos = Achar_objetos(img1) #Achga os objetos presentes em um frame atual
         n_objetos1 = len(objetos)
+        print("O número de objetos lido agora é: " + str(n_objetos1))
+        if n_objetos1 == 0:
+            logica.criar_malha()
+            n_objetos = 1
+            n_objetos1 = 1
+            print("Malha recriada, pois o jogo foi apagado!")
         varNimg = 0
 
     #A etapa a seguir vai identificar a malha do jogo "#" e setorizar ela com 9 quadrantes 
@@ -303,15 +310,17 @@ while 1: # loop principal,irá ficar verificando se há alguma mudança na malha
             escreve(imgC2, str(len(objetos))+" objetos encontrados!")
             #cv2.imshow("Resultado", imgC2)
             #cv2.waitKey(0)
-        else:
-            print("Objeto ignorado")
+        #else:
+            #print("Objeto ignorado")
+            
+
     print(MALHA_PRINCIPAL)
     #cv2.waitKey(0)
 
-    logica.Logica(MALHA_PRINCIPAL , 4)
+    logica.Logica(MALHA_PRINCIPAL , 3)
     print("Terminou")
     fff , imgk =  video.read()
-    imgk = Arrumar_img(imgk,600)
+    imgk = Arrumar_img(imgk,800)
     objetos = Achar_objetos(imgk)
     imgk = Arrumar_img(imgk,200)
 
